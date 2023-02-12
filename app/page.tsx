@@ -17,8 +17,6 @@ const getJobOffersPage = async () => {
 
 const LandingPage = () => {
   const { meta, records } = use(getJobOffersPage())
-
-  console.log(records[0])
   return (
     <div className="container mt-10">
       <h1 className="text-center mb-4 text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
