@@ -12,7 +12,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-
 import AlertFiltrado from "./AlertFiltrado"
 
 const JobOfferCardContent = ({
@@ -20,7 +19,7 @@ const JobOfferCardContent = ({
   company,
   location,
   publishedAt,
-  detail,
+  body,
 }) => (
   <article className="dark:text-zinc-500 cursor-pointer rounded-lg border dark:border-zinc-800 hover:dark:border-zinc-700 p-4 pb-12 relative h-full text-left">
     <h2 className="dark:text-zinc-300 font-bold">{title}</h2>
@@ -28,7 +27,7 @@ const JobOfferCardContent = ({
       <span className="text-sm italic">{company}</span>
       <span className="text-sm font-bold text-right">{location}</span>
     </div>
-    <p className="text-sm my-2">{detail.slice(0, 120)}...</p>
+    <p className="whitespace-pre-line">{body.slice(0, 120)}...</p>
     <span className="font-bold text-sm absolute bottom-2 right-2">
       {publishedAt.short}
     </span>
@@ -41,7 +40,7 @@ const JobOfferDialogContent = ({
   company,
   location,
   publishedAt,
-  detailHTML,
+  body,
 }) => (
   <DialogContent className="sm:max-w-[840px] h-full sm:max-h-[520px]">
     <DialogHeader>
@@ -49,21 +48,22 @@ const JobOfferDialogContent = ({
       <DialogDescription>
         <div className="dark:text-zinc-400 flex justify-between">
           <span className="text-sm italic">{company}</span>
-          <span className="text-sm font-bold flex justify-end">{location}</span>
+          <span className="text-sm font-bold text-right">{location}</span>
         </div>
       </DialogDescription>
     </DialogHeader>
-    <div dangerouslySetInnerHTML={{ __html: detailHTML }} />
-    <div className="sm:h-[280px] h-[520px] overflow-y-auto list-disc list-inside space-y-2 mt-4 mb-2 cursor-pointer rounded-full py-1.5 px-4 text-xs font-bold bg-rose-600 hover:bg-opacity-70 bg-opacity-100 space-x-4 hidden" />
-    <div className="hidden py-4 font-bold text-lg text-white "></div>
-    <div className="hidden text-zinc-700"></div>
-    <div className="hidden text-zinc-400"></div>
+
+    <p className="text-zinc-300 max-h-[520px] overflow-y-auto whitespace-pre-line">
+      {body}
+    </p>
+
+    <div className="list-disc list-inside space-y-2 mt-4 mb-2 cursor-pointer rounded-full py-1.5 px-4 text-xs font-bold bg-rose-600 hover:bg-opacity-70 bg-opacity-100 space-x-4 hidden" />
     <span className="font-bold text-sm flex justify-end mt-4">
       {publishedAt.long}
     </span>
-    <DialogFooter className="flex justify-between sm:justify-between">
-      <AlertFiltrado id={id} />
-      <Button type="button">
+    <DialogFooter>
+      <AlertFiltrado id={id}  />
+      <Button type="button" size="sm">
         <a
           href={`https://pe.computrabajo.com/trabajo-de-practicas-ingenieria-civil#${id}`}
           target="_blank"

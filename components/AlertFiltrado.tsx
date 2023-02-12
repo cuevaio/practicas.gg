@@ -21,19 +21,21 @@ const AlertFiltrado = ({ id }) => {
     mutate(data)
   }
 
-  if (currentUserAlerted) {
-    return (
-      <Button disabled={isLoading} variant="ghost" onClick={handleClick}>
-        <AlertTriangle className="mr-2 h-4 w-4" /> Lo alertaste como filtrado{" "}
-        {alert_count > 0 && `(${alert_count}/5)`}
-      </Button>
-    )
-  }
-
   return (
-    <Button disabled={isLoading} onClick={handleClick}>
-      <AlertTriangle className="mr-2 h-4 w-4" /> Alertar como filtrado{" "}
-      {alert_count > 0 && `(${alert_count}/5)`}
+    <Button
+      size="sm"
+      disabled={isLoading}
+      variant="ghost"
+      onClick={handleClick}
+      className="dark:text-zinc-300 flex items-center"
+    >
+      <AlertTriangle className="mr-2 h-4 w-4" />
+      <span className="text-xs font-medium">
+        {currentUserAlerted
+          ? "Lo alertaste como filtrado"
+          : "Alertar como filtrado"}
+        {alert_count > 0 && `(${alert_count}/5)`}
+      </span>
     </Button>
   )
 }
