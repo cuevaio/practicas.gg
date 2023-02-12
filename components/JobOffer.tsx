@@ -52,7 +52,10 @@ const JobOfferDialogContent = ({
       </DialogDescription>
     </DialogHeader>
     <div dangerouslySetInnerHTML={{ __html: detailHTML }} />
-    <div className="sm:h-[280px] h-[520px] py-4 overflow-y-auto text-zinc-400 list-disc list-inside space-y-2 font-bold text-lg mt-4 mb-2 cursor-pointer rounded-full py-1.5 px-4 text-xs font-bold bg-rose-600 hover:bg-opacity-70 bg-opacity-100 space-x-4 text-white hidden text-zinc-700 text-zinc-400" />
+    <div className="sm:h-[280px] h-[520px] overflow-y-auto list-disc list-inside space-y-2 mt-4 mb-2 cursor-pointer rounded-full py-1.5 px-4 text-xs font-bold bg-rose-600 hover:bg-opacity-70 bg-opacity-100 space-x-4 hidden" />
+    <div className="hidden py-4 font-bold text-lg text-white "></div>
+    <div className="hidden text-zinc-700"></div>
+    <div className="hidden text-zinc-400"></div>
     <span className="font-bold text-sm flex justify-end mt-4">
       {publishedAt.long}
     </span>
