@@ -8,7 +8,7 @@ import JobOffer from "@/components/JobOffer"
 import MorePages from "@/components/MorePages"
 import { Icons } from "@/components/icons"
 
-export const revalidate = 43200
+export const revalidate = 300
 
 const getJobOffersPage = async () => {
   return await JobsClient.db.JobOffer.sort("publishedAt", "desc").getPaginated({

@@ -22,8 +22,11 @@ const tables = [
       { name: "company", type: "string" },
       { name: "location", type: "string" },
       { name: "detailHTML", type: "text" },
+      { name: "alert_count", type: "int", notNull: true, defaultValue: "0" },
     ],
   },
+  { name: "Session", columns: [] },
+  { name: "AlertedJobsOffers", columns: [] },
 ] as const;
 
 export type SchemaTables = typeof tables;
@@ -32,8 +35,16 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type JobOffer = InferredTypes["JobOffer"];
 export type JobOfferRecord = JobOffer & XataRecord;
 
+export type Session = InferredTypes["Session"];
+export type SessionRecord = Session & XataRecord;
+
+export type AlertedJobsOffers = InferredTypes["AlertedJobsOffers"];
+export type AlertedJobsOffersRecord = AlertedJobsOffers & XataRecord;
+
 export type DatabaseSchema = {
   JobOffer: JobOfferRecord;
+  Session: SessionRecord;
+  AlertedJobsOffers: AlertedJobsOffersRecord;
 };
 
 const DatabaseClient = buildClient();

@@ -13,6 +13,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
+import AlertFiltrado from "./AlertFiltrado"
+
 const JobOfferCardContent = ({
   title,
   company,
@@ -26,7 +28,7 @@ const JobOfferCardContent = ({
       <span className="text-sm italic">{company}</span>
       <span className="text-sm font-bold text-right">{location}</span>
     </div>
-    <p className="text-sm my-2">{detail.slice(0, 120)}</p>
+    <p className="text-sm my-2">{detail.slice(0, 120)}...</p>
     <span className="font-bold text-sm absolute bottom-2 right-2">
       {publishedAt.short}
     </span>
@@ -59,7 +61,8 @@ const JobOfferDialogContent = ({
     <span className="font-bold text-sm flex justify-end mt-4">
       {publishedAt.long}
     </span>
-    <DialogFooter>
+    <DialogFooter className="flex justify-between sm:justify-between">
+      <AlertFiltrado id={id} />
       <Button type="button">
         <a
           href={`https://pe.computrabajo.com/trabajo-de-practicas-ingenieria-civil#${id}`}

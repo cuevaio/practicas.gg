@@ -2,6 +2,7 @@
 
 import { Inter as FontSans } from "@next/font/google"
 import { Provider as WrapBalancerProvider } from "react-wrap-balancer"
+import { SWRConfig } from "swr"
 
 import "@/styles/globals.css"
 import Header from "@/components/Header"
@@ -21,10 +22,18 @@ const Layout: React.FunctionComponent<MainLayoutProps> = ({ children }) => {
     <html lang="es" className={fontSans.className}>
       <body className="min-h-screen bg-white font-sans text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-50">
         <NextThemeProvider>
-          <WrapBalancerProvider>
-            <Header />
-            {children}
-          </WrapBalancerProvider>
+          <SWRConfig
+            value={{
+              refreshInterval: 3000,
+              fetcher: (resource, init) =>
+                fetch(resource, init).then((res) => res.json()),
+            }}
+          >
+            <WrapBalancerProvider>
+              <Header />
+              {children}
+            </WrapBalancerProvider>
+          </SWRConfig>
         </NextThemeProvider>
       </body>
     </html>
