@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://first-job-l4j85m.us-east-1.xata.sh/db/jobs",
+  "codegen": {
+    "output": "xata/codegen/jobs.ts"
+  }
+}

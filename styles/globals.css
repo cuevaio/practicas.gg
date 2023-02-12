@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+br {
+  content: "";
+  display: block;
+  font-size: 100%;
+  height: 0.5em;
+  outline: red;
+  display: block;
+}
