@@ -26,10 +26,10 @@ const LandingPage = () => {
         <span className="text-gray-400">Bienvenido a </span>
         {siteConfig.name}
       </h1>
-      <div className="flex justify-between items-center dark:text-zinc-500">
+      <div className="flex flex-col sm:flex-row justify-between items-center dark:text-zinc-500">
         <Balancer>{siteConfig.description}</Balancer>
         <a target="_blank" rel="noreferrer" href={siteConfig.links.github}>
-          <Icons.gitHub className="w-5 h-5 mr-2 fill-current" />
+          <Icons.gitHub className="w-5 h-5 my-2 sm:my-0 fill-current" />
         </a>
       </div>
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-8 mt-12">
