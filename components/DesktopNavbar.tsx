@@ -9,7 +9,7 @@ import SocialLinks from "./SocialLinks"
 
 const DesktopNavbar = () => {
   return (
-    <div className="hidden md:flex container items-center justify-between py-4">
+    <div className="hidden md:flex items-center justify-between py-4">
       <div className="flex items-center">
         <Link href="/" className="flex items-center">
           <Icons.logo className="w-8 h-8 fill-current" />
